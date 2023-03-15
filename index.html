@@ -79,6 +79,7 @@
             type="audio/mpeg"
           />
         </audio>
+        <h2 class="text-center" id="h3">Terima kasih</h2>
         <div class="content">
           <h2 class="text-center" id="h2">Happy birthday to you</h2>
           <div class="desk text-center" id="desk">
@@ -94,7 +95,7 @@
       </div>
     </div>
     <div id="embed-video">
-      <video id="myVideo" controls
+      <video id="myVideo"
         src="y2mate.com - NGAKAK  LAGU ULANG TAHUN VERSI INDIA TAHAN KETAWA ANDA KALO BISA_360p.mp4"
         type="video/mp4"
       ></video>
@@ -134,8 +135,16 @@
           $(".main").hide();
           $("#embed-video").css("display", "block");
         }, 12000);
-       
             })
+
+            setTimeout(function(){
+                $("#myVideo")[0].pause();
+                $("#myVideo").hide();
+                $(".content").show();
+                $(".main").show();
+                $("#h2").text("Terima kasih:)")
+                $("#desk").hide();
+            },70000);
       });
 
       function conffetii() {
