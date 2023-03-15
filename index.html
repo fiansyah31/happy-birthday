@@ -46,10 +46,13 @@
       #embed-video {
         display: none;
       }
-
+      .button {
+        transition: display 600ms ease-in;
+        margin-top: 200px !important;
+      }
       @media (max-width: 600px) {
         .content {
-          padding: 20px 10px;
+          padding: 10px 10px;
         }
         h2 {
           font-size: 42px;
@@ -58,43 +61,81 @@
     </style>
   </head>
   <body>
-    <div class="main"></div>
+    <div class="main">
+        
+      <div class="container">
+        <div class="text-center mt-5 button">
+            <button class="btn btn-danger text-center m-auto py-2 px-3" id="klik">Please Klik</button>
+        </div>
+        <audio id="audio-terompet" controls  >
+          <source
+            src="y2mate.com - Sound effect terompet lucu.mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+        <audio id="audio-squid" controls  >
+          <source
+            src="y2mate.com - SLAMAT ULANG TAHUN  Squidward.mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+        <div class="content">
+          <h2 class="text-center" id="h2">Happy birthday to you</h2>
+          <div class="desk text-center" id="desk">
+            Selamat ulang tahun yang panjang dan bahagia! Semoga setiap tahunnya
+            menjadi lebih baik dari sebelumnya dan kamu selalu dikelilingi oleh
+            orang-orang yang mencintaimu. Semoga mimpi-mimpimu terwujud dan kamu
+            sukses dalam semua aspek kehidupanmu. Teruslah berjuang dan jangan
+            pernah menyerah dalam meraih apa yang kamu inginkan. Selamat
+            merayakan hari spesialmu!
+          </div>
+        </div>
+        <div id="tsparticles"></div>
+      </div>
+    </div>
+    <div id="embed-video">
+      <video id="myVideo" controls
+        src="y2mate.com - NGAKAK  LAGU ULANG TAHUN VERSI INDIA TAHAN KETAWA ANDA KALO BISA_360p.mp4"
+        type="video/mp4"
+      ></video>
+    </div>
+    </div>
 
     <!-- first include tsParticles engine -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine"></script>
-
-    <!-- then include any tsParticles plugin needed -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles/tsparticles.bundle.min.js"></script>
-
-    <!-- then include jquery wrapper -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-particles"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.4.min.js"
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
       crossorigin="anonymous"
     ></script>
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine"></script>
+
+    <!-- then include any tsParticles plugin needed -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles/tsparticles.bundle.min.js"></script>
+
+    <!-- then include jquery wrapper -->
+ 
+    <script>  
       $(document).ready(function () {
-        $(".main").load("load.html");
-        setTimeout(function () {
-          $("body").css("background-color", "#ECF2FF");
+            $("#klik").click(function(){
+                $(".button").css("display", "none");
+                $("#audio-terompet")[0].play();
+                $("#audio-squid")[0].play();
+                $("#myVideo")[0].play();
+                $("body").css("background-color", "#ECF2FF");
           conffetii();
           $("#h2").fadeIn("slow");
           setTimeout(function () {
             $("#desk").fadeIn("slow");
             $("#desk").css("transform", "translateY(0%)");
           }, 4000);
-          setTimeout(function () {
-            $("#audio-terompet").trigger("play");
-            $("#audio-squid").trigger("play");
-          }, 3000);
-        }, 500);
-
         setTimeout(function () {
           $(".content").hide();
           $(".main").hide();
           $("#embed-video").css("display", "block");
-        }, 14000);
+        }, 12000);
+       
+            })
       });
 
       function conffetii() {
